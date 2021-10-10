@@ -7,8 +7,16 @@ import java.util.Scanner;
 
 public class СheckingСoordinates {
     public static void main(String[] args) {
+        int x;
+        int y;
+        boolean isCoordinateInArea;
 
-        viewIsCoordinateInArea();
+        x = inputCoordinate("x");
+        y = inputCoordinate("y");
+
+        isCoordinateInArea = isCoordinatesInTheSelectedArea(x, y);
+
+        System.out.println(isCoordinateInArea);
 
     }
 
@@ -42,15 +50,10 @@ public class СheckingСoordinates {
         return isBelow;
     }
 
-    public static boolean isCoordinatesInTheSelectedArea() {
+    public static boolean isCoordinatesInTheSelectedArea(int x, int y) {
         boolean isAbove;
         boolean isBelow;
         boolean result;
-        int x;
-        int y;
-
-        x = inputCoordinate("x");
-        y = inputCoordinate("y");
 
         isAbove = isAboveTheCoordinateAxisX(x, y);
         isBelow = isBelowTheCoordinateAxisX(x, y);
@@ -58,9 +61,5 @@ public class СheckingСoordinates {
         result = isAbove || isBelow;
 
         return result;
-    }
-
-    public static void viewIsCoordinateInArea() {
-        System.out.println(isCoordinatesInTheSelectedArea());
     }
 }
